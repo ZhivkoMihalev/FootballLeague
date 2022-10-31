@@ -1,0 +1,77 @@
+﻿@using FootballLeague.Services.Models
+@model IEnumerable<StandingDTO>
+
+@{
+    ViewData["Title"] = "Standings";
+}
+
+<h2>Football teams</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Place
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Draws)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Losses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoalsFor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoalsAgainst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoalsDifference)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Points)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int position = 1;}
+        @foreach (var team in Model)
+        {
+            <tr>
+                <td>
+                    @(position++)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => team.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => team.Wins)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => team.Draws)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => team.Losses)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => team.GoalsFor)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => team.GoalsAgainst)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => team.GoalsDifference)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => team.Points)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

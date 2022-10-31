@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FootballLeague.Services.Models.MatchDTO>
+
+@{
+    ViewData["Title"] = "Matches";
+}
+
+<h2>Football matches</h2>
+
+<p>
+    <a asp-action="Create">Create new match</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Match
+            </th>
+            <th>
+               1/X/2
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                     @Html.DisplayFor(modelItem => item.HomeTeamName) @Html.DisplayFor(modelItem => item.HomeTeamGoals) : @Html.DisplayFor(modelItem => item.AwayTeamGoals) @Html.DisplayFor(modelItem => item.AwayTeamName) 
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SignResult)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
